@@ -66,31 +66,31 @@ The **webToGCS_Pipeline.py** python3 file is a Pipeline to process the datasets 
 
 - ALLOW PERMISSIONS TO BASH SCRIPTS INCLUDED IN THE REPO:
 	
-	**chmod +x fetching_data.sh uploading_data.sh crm_gcs_to_bq.sh dev_gcs_to_bq.sh rev_gcs_to_bq.sh**
+	`chmod +x fetching_data.sh uploading_data.sh crm_gcs_to_bq.sh dev_gcs_to_bq.sh rev_gcs_to_bq.sh`
 	
 - RUN PREFECT ORION SERVER, BUT FIRST ACTIVATE ANACONDA BASE ENVIRONMENT:
 
-	**prefect orion start**
+	`prefect orion start`
 
 - THEN SET A CONFIGURATION:
 
-	**prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api**
+	`prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api`
 
 - NEXT SET AUTHORIZATION:
 
-	**gcloud auth login**
+	`gcloud auth login`
 
 - SET PROJECT ID:
 
-	**gcloud config set project <PROJECT ID>**}
+	`gcloud config set project <PROJECT ID>`
 	
 - CREATE A DIR AT YOUR GCS:
 	
-	**data/telecomm**
+	`data/telecomm`
 
 THEN RUN PIPELINE:
 
-**python3 webToGCS_Pipeline.py**
+`python3 webToGCS_Pipeline.py`
 
 
 
@@ -106,38 +106,6 @@ THEN RUN PIPELINE:
 
 ## REPRODUCIBILITY
 
-AS I MENTIONED IN DATA INGESTION (BATCH) STAGE FOR REPRODUCIBILITY IS NEEDED TO SETUP A PRIMERY COMMANDS PRIOR RUNNING THE PIPELINE, THIS ARE THOSE STEPS:
-
-SETUP BEFORE RUNNING BATCH PROCESSING:
-
-	ALLOW PERMISSIONS TO SCRIPTS:
-	
-	**chmod +x fetching_data.sh**
-	**chmod +x uploading_data.sh**
-
-	RUN PREFECT ORION SERVER, BUT FIRST ACTIVATE ANACONDA BASE ENVIRONMENT:
-
-	**prefect orion start**
-
-	THEN SET A CONFIGURATION:
-
-	**prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api**
-
-	SET AUTHORIZATION:
-
-	**gcloud auth login**
-
-	SET PROJECT ID:
-
-	**gcloud config set project <PROJECT ID>**}
-	
-	CREATE A DIR AT YOUR GCS:
-	
-	**data/telecomm**
-
-THEN RUN PIPELINE:
-
-**python3 webToGCS_Pipeline.py**
 
 
 ################ QUITAR RUTAS DE DATASETS IN BIGQUERY Y EL NOMBRE DEL JSON FILE EN GCSToBQ_pipeline.py ################################
