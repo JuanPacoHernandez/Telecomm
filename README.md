@@ -21,25 +21,25 @@ Once the problem statement has been described I can go diving into the dataset a
 The data consists in three datasets: 
 
 **CRM ATTRIBUTE DESCRIPTION** 
-msisdn  : Unique identification number assigned to each mobile number
-gender  : sex of the customer using the mobile service
-year_of_birth  : year of birth of the customer
-system_status  : indicates the status of the mobile service being used by the customer
-mobile_type  : Customers can choose their service as prepaid or postpaid
-value_segment  : Segmentation based on how well the customer matches the business goals
+- msisdn  : Unique identification number assigned to each mobile number
+- gender  : sex of the customer using the mobile service
+- year_of_birth  : year of birth of the customer
+- system_status  : indicates the status of the mobile service being used by the customer
+- mobile_type  : Customers can choose their service as prepaid or postpaid
+- value_segment  : Segmentation based on how well the customer matches the business goals
 
 **IOT DEVICES ATTRIBUTE DESCRIPTION**
-msisdn: Unique identification number assigned to each mobile number
-imei_tac: Unique identification number assigned to the location of the mobile service
-brand_name: The brand of the mobile
-model_name: The model of the mobile
-os_name: The Operating System of the mobile
-os_vendor: The company of the mobile operating system
+- msisdn: Unique identification number assigned to each mobile number
+- imei_tac: Unique identification number assigned to the location of the mobile service
+- brand_name: The brand of the mobile
+- model_name: The model of the mobile
+- os_name: The Operating System of the mobile
+- os_vendor: The company of the mobile operating system
 
 **REVENUE ATTRIBUTE DESCRIPTION**
-msisdn  : Unique identification number assigned to each mobile number
-week_number : Week number for the particular year
-Revenue_usd : Revenue generated in that week in US dollars
+- msisdn  : Unique identification number assigned to each mobile number
+- week_number : Week number for the particular year
+- Revenue_usd : Revenue generated in that week in US dollars
 
 Dataset sources: 
 **https://www.kaggle.com/datasets/krishnacheedella/telecom-iot-crm-dataset?resource=download**
@@ -64,27 +64,27 @@ When performing Data ingestion, using Batch Processing, this project use PySpark
 
 The **webToGCS_Pipeline.py** python3 file is a Pipeline to process the datasets and putting them to a Data Lake in GCP, before running this Pipeline a setup must be enabled:
 
-	ALLOW PERMISSIONS TO BASH SCRIPTS INCLUDED IN THE REPO:
+- ALLOW PERMISSIONS TO BASH SCRIPTS INCLUDED IN THE REPO:
 	
 	**chmod +x fetching_data.sh uploading_data.sh crm_gcs_to_bq.sh dev_gcs_to_bq.sh rev_gcs_to_bq.sh**
 	
-	RUN PREFECT ORION SERVER, BUT FIRST ACTIVATE ANACONDA BASE ENVIRONMENT:
+- RUN PREFECT ORION SERVER, BUT FIRST ACTIVATE ANACONDA BASE ENVIRONMENT:
 
 	**prefect orion start**
 
-	THEN SET A CONFIGURATION:
+- THEN SET A CONFIGURATION:
 
 	**prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api**
 
-	NEXT SET AUTHORIZATION:
+- NEXT SET AUTHORIZATION:
 
 	**gcloud auth login**
 
-	SET PROJECT ID:
+- SET PROJECT ID:
 
 	**gcloud config set project <PROJECT ID>**}
 	
-	CREATE A DIR AT YOUR GCS:
+- CREATE A DIR AT YOUR GCS:
 	
 	**data/telecomm**
 
@@ -150,14 +150,17 @@ THEN RUN PIPELINE:
 
 ## WEBSITE LINKS:
 
-EXPORTING GCS TO BIGQUERY:
+- EXPORTING GCS TO BIGQUERY:
 **https://cloud.google.com/bigquery/docs/external-data-cloud-storage?hl=es-419**
-BIGQUERY CONNECTOR WITH SPARK:
+
+- BIGQUERY CONNECTOR WITH SPARK:
 **https://cloud.google.com/dataproc/docs/tutorials/bigquery-connector-spark-example?hl=es-419#pyspark**
-PARTITION BY IN BIGQUERY:
+
+- PARTITION BY IN BIGQUERY:
 **https://cloud.google.com/bigquery/docs/creating-partitioned-tables?hl=es#sql_2**
 **https://towardsdatascience.com/how-to-use-partitions-and-clusters-in-bigquery-using-sql-ccf84c89dd65**
-CLUSTERED BY BIGQUERY:
+
+- CLUSTERED BY BIGQUERY:
 **https://cloud.google.com/bigquery/docs/creating-clustered-tables?hl=es-419#sql_1**
 
 
